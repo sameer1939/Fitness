@@ -1,0 +1,17 @@
+.suppliment-title{
+    background: url('https://res.cloudinary.com/sameercloud/image/upload/v1657542143/Exercise_kcnhln.png');
+    background-size: cover;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+}
+
+.suppliment-title .site-background{
+    padding-top: 5rem;
+    text-align: center;
+    color: var(--white);
+}
+
+.suppliment-title h1, h3{
+    margin: .3rem;
+}
