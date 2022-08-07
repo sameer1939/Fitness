@@ -1,98 +1,94 @@
- <!----------------------------- Main Site Section ------------------------------>
+<!----------------------------- Main Site Section ------------------------------>
 
- <main>
+<main>
+  <!------------------------ Site Title ---------------------->
 
-    <!------------------------ Site Title ---------------------->
+  <section class="site-title">
+    <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+      <h3>Tours & Travels</h3>
+      <h1>Amazing Place on Earth</h1>
+      <button class="btn">Explore</button>
+    </div>
+  </section>
 
-    <section class="site-title">
-        <div class="site-background" data-aos="fade-up" data-aos-delay="100">
-            <h3>Tours & Travels</h3>
-            <h1>Amazing Place on Earth</h1>
-            <button class="btn">Explore</button>
-        </div>
-    </section>
+  <!------------x----------- Site Title ----------x----------->
 
-    <!------------x----------- Site Title ----------x----------->
+  <!-- --------------------- Blog Carousel ----------------- -->
 
-    <!-- --------------------- Blog Carousel ----------------- -->
-
-    <section>
-        <div class="blog">
-            <div class="container">
-                <div class="owl-carousel owl-theme blog-post">
-                    <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
-                        <img src="../../../assets/Blog-post/post-1.jpg" alt="post-1">
-                        <div class="blog-title">
-                            <h3>London Fashion week's continued the evolution</h3>
-                            <button class="btn btn-blog">Fashion</button>
-                            <span>2 minutes</span>
-                        </div>
-                    </div>
-                    <div class="blog-content" data-aos="fade-in" data-aos-delay="200">
-                        <img src="../../../assets/Blog-post/post-3.jpg" alt="post-1">
-                        <div class="blog-title">
-                            <h3>London Fashion week's continued the evolution</h3>
-                            <button class="btn btn-blog">Fashion</button>
-                            <span>2 minutes</span>
-                        </div>
-                    </div>
-                    <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
-                        <img src="../../../assets/Blog-post/post-2.jpg" alt="post-1">
-                        <div class="blog-title">
-                            <h3>London Fashion week's continued the evolution</h3>
-                            <button class="btn btn-blog">Fashion</button>
-                            <span>2 minutes</span>
-                        </div>
-                    </div>
-                    <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
-                        <img src="../../../assets/Blog-post/post-5.png" alt="post-1">
-                        <div class="blog-title">
-                            <h3>London Fashion week's continued the evolution</h3>
-                            <button class="btn btn-blog">Fashion</button>
-                            <span>2 minutes</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-navigation">
-                    <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
-                    <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
-                </div>
+  <section>
+    <div class="blog">
+      <div class="container">
+        <div class="owl-carousel owl-theme blog-post">
+          <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+            <img src="../../../assets/Blog-post/post-1.jpg" alt="post-1" />
+            <div class="blog-title">
+              <h3>London Fashion week's continued the evolution</h3>
+              <button class="btn btn-blog">Fashion</button>
+              <span>2 minutes</span>
             </div>
-        </div>
-    </section>
-
-    <!-- ----------x---------- Blog Carousel --------x-------- -->
-
-    <!-- ---------------------- Site Content -------------------------->
-
-    <section class="container">
-        <div class="site-content">
-            <div class="posts">
-                <app-post-content></app-post-content>
-        <hr>
-        <app-post-content></app-post-content>
-        <hr>
-        <app-post-content></app-post-content>
-        <hr>
-        <app-post-content></app-post-content>
-        <hr>
-        <app-post-content></app-post-content>
-                <div class="pagination flex-row">
-                    <section class="loadMoreSection">
-                      <div class="site-background">
-                        <button class="btn">Load More</button>
-                      </div>
-                    </section>
-                  </div>
+          </div>
+          <div class="blog-content" data-aos="fade-in" data-aos-delay="200">
+            <img src="../../../assets/Blog-post/post-3.jpg" alt="post-1" />
+            <div class="blog-title">
+              <h3>London Fashion week's continued the evolution</h3>
+              <button class="btn btn-blog">Fashion</button>
+              <span>2 minutes</span>
             </div>
-            <aside class="sidebar">
-                <app-sidebar></app-sidebar>
-            </aside>
+          </div>
+          <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
+            <img src="../../../assets/Blog-post/post-2.jpg" alt="post-1" />
+            <div class="blog-title">
+              <h3>London Fashion week's continued the evolution</h3>
+              <button class="btn btn-blog">Fashion</button>
+              <span>2 minutes</span>
+            </div>
+          </div>
+          <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+            <img src="../../../assets/Blog-post/post-5.png" alt="post-1" />
+            <div class="blog-title">
+              <h3>London Fashion week's continued the evolution</h3>
+              <button class="btn btn-blog">Fashion</button>
+              <span>2 minutes</span>
+            </div>
+          </div>
         </div>
-    </section>
+        <div class="owl-navigation">
+          <span class="owl-nav-prev"
+            ><i class="fas fa-long-arrow-alt-left"></i
+          ></span>
+          <span class="owl-nav-next"
+            ><i class="fas fa-long-arrow-alt-right"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- -----------x---------- Site Content -------------x------------>
+  <!-- ----------x---------- Blog Carousel --------x-------- -->
 
+  <!-- ---------------------- Site Content -------------------------->
+
+  <section class="container">
+    <div class="site-content">
+      <div class="posts">
+        <div *ngFor="let item of articles">
+          <app-post-content [article]="item"></app-post-content>
+        </div>
+        <div class="pagination flex-row">
+          <section class="loadMoreSection">
+            <div class="site-background">
+              <button class="btn">Load More</button>
+            </div>
+          </section>
+        </div>
+      </div>
+      <aside class="sidebar">
+        <app-sidebar></app-sidebar>
+      </aside>
+    </div>
+  </section>
+
+  <!-- -----------x---------- Site Content -------------x------------>
 </main>
 
 <!---------------x------------- Main Site Section ---------------x-------------->

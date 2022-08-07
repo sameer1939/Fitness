@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Article } from 'src/app/ViewModels/article';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-post-content',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostContentComponent implements OnInit {
 
+  @Input() article: Article;
+  ImageUrl = environment.ImageUrl;
   constructor() { }
 
   ngOnInit(): void {

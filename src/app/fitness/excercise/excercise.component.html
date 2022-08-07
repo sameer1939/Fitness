@@ -12,18 +12,17 @@
   <section class="container">
     <div class="site-content">
       <div class="posts">
-        <app-post-content></app-post-content>
-        <hr>
-        <app-post-content></app-post-content>
-        <hr>
-        <app-post-content></app-post-content>
-        <hr>
-        <app-post-content></app-post-content>
-        <hr>
-        <app-post-content></app-post-content>
+        <div *ngFor="let item of articles">
+          <app-post-content [article]="item"></app-post-content>
+        </div>
+
         <div class="pagination flex-row">
           <section class="loadMoreSection">
-            <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="site-background"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               <button class="btn">Load More</button>
             </div>
           </section>

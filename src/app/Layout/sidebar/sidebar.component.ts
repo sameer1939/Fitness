@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SubCategory } from 'src/app/ViewModels/subcategory';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  @Input() subCategory:SubCategory[];
   constructor() { }
 
   ngOnInit(): void {

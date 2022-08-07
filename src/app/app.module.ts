@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,10 @@ import { SteriodComponent } from './fitness/steriod/steriod.component';
 import { AboutComponent } from './fitness/about/about.component';
 import { SidebarComponent } from './Layout/sidebar/sidebar.component';
 import { PostContentComponent } from './fitness/post-content/post-content.component';
+import { FitnessComponent } from './fitness/fitness.component';
+import { CategoryService } from './services/menu.service';
+import { ArticleService } from './services/article.service';
+import { ArticleComponent } from './fitness/Article/article.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +31,16 @@ import { PostContentComponent } from './fitness/post-content/post-content.compon
     SteriodComponent,
     AboutComponent,
     SidebarComponent,
-    PostContentComponent
+    PostContentComponent,
+    FitnessComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CategoryService,ArticleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

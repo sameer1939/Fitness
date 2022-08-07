@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CategoryService} from 'src/app/services/menu.service';
+import { Category } from 'src/app/ViewModels/category';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,14 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  visibleMenu: Array<Category>=[];
+  constructor(private menuService: CategoryService) { }
 
   ngOnInit(): void {
+    this.menuService.bindVisibleCategory().subscribe((data: Category[]) => {
+      console.log(data);
+      this.visibleMenu = data;
+    })
   }
 
 

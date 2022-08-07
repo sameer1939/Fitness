@@ -12,30 +12,20 @@
         </div>
         <div>
             <ul class="nav-items">
-                <li class="nav-link">
-                    <a routerLink="/excercises" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Exercises</a>
+                <li class="nav-link" *ngFor="let item of visibleMenu">
+                    <a routerLink="/fitness/{{item.name}}/{{item.id}}" routerLinkActive="active">{{item.name}}</a>
                 </li>
-                <li class="nav-link">
-                    <a routerLink="/diets" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Diets</a>
-                </li>
-                <li class="nav-link">
-                    <a routerLink="/suppliments" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Supplements</a>
-                </li>
-                <li class="nav-link">
-                    <a routerLink="/steriods" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Steriods</a>
-                </li>
-                <li class="nav-link">
-                    <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">About me</a>
-                </li>
+
             </ul>
         </div>
         <div class="social text-gray">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a> -->
         </div>
     </div>
-</nav>
 
+</nav>
+<hr>
 <!-- ------------x---------------  Navigation --------------------------x------------------- -->

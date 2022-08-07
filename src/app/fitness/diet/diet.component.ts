@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleService } from 'src/app/services/article.service';
+import { Article } from 'src/app/ViewModels/article';
 
 @Component({
   selector: 'app-diet',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DietComponent implements OnInit {
 
-  constructor() { }
+  articles: Array<Article> = [];
+  constructor(private articleService: ArticleService) {
+
+  }
 
   ngOnInit(): void {
+
   }
 
 }
