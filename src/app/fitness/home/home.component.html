@@ -5,9 +5,9 @@
 
   <section class="site-title">
     <div class="site-background" data-aos="fade-up" data-aos-delay="100">
-      <h3>Tours & Travels</h3>
-      <h1>Amazing Place on Earth</h1>
-      <button class="btn">Explore</button>
+      <h3>NO EXCUSES</h3>
+      <h1>A One Hour Workout is Only 4% of Your Day</h1>
+      <button class="btn" (click)="scroll(articleContent)">Explore</button>
     </div>
   </section>
 
@@ -69,7 +69,7 @@
   <!-- ---------------------- Site Content -------------------------->
 
   <section class="container">
-    <div class="site-content">
+    <div class="site-content" #articleContent>
       <div class="posts">
         <div *ngFor="let item of articles">
           <app-post-content [article]="item"></app-post-content>
