@@ -9,6 +9,7 @@ import { SubCategory } from 'src/app/ViewModels/subcategory';
 export class SidebarComponent implements OnInit {
 
   @Input() subCategory:SubCategory[];
+  @Input() popularTag:SubCategory[];
   constructor() { }
 
   ngOnInit(): void {

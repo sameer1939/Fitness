@@ -12,4 +12,8 @@ export class ArticleService {
   getVisibleArticles(cat:number) {
     return this.http.get(this.baseUrl + "article/bindVisibleArticleFrontend/"+cat);
   }
+
+  getArticlesById(id:number) {
+    return this.http.get(this.baseUrl + "article/articleById/"+id);
+  }
 }

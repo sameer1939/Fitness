@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,9 @@ import { FitnessComponent } from './fitness/fitness.component';
 import { CategoryService } from './services/menu.service';
 import { ArticleService } from './services/article.service';
 import { ArticleComponent } from './fitness/Article/article.component';
+import { LoaderComponent } from './loader/loader.component';
+import { LoaderService } from './services/loader.service';
+import { LoaderInterceptor } from './services/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,14 +36,16 @@ import { ArticleComponent } from './fitness/Article/article.component';
     SidebarComponent,
     PostContentComponent,
     FitnessComponent,
-    ArticleComponent
+    ArticleComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [CategoryService,ArticleService],
+  providers: [CategoryService,ArticleService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

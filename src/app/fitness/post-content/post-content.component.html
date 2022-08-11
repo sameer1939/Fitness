@@ -11,9 +11,9 @@
       </div>
     </div>
     <div class="post-title">
-      <a href="#">{{article.headingName}}</a>
+      <a style="cursor:pointer;" (click)="showArticleDetail(article.categoryName,article.categoryId, article.id)">{{article.heading}}</a>
       <div [innerHTML]="article.shortArticle">
       </div>
-      <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
+      <button class="btn post-btn" (click)="showArticleDetail(article.categoryName,article.categoryId, article.id)">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
     </div>
   </div>

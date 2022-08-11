@@ -1,12 +1,15 @@
 <main>
+  
   <!--Exercise Banner-->
-  <section class="steriod-title">
-    <div class="site-background" data-aos="fade-up" data-aos-delay="100">
-      <h1>Steriods</h1>
-      <h3>Use on a safer side</h3>
+  <section class="steriod-title" *ngIf="category.categoryImage" [ngStyle]="{background: 'url('+ImageUrl+category.categoryImage.replace('\\','/').replace('\\','/')+')', 'background-size': 'cover'}">
+    
+    <div class="site-background" >
+      <h1>{{category.name}}</h1>
+      <h3>{{category.quotes}}</h3>
     </div>
   </section>
-
+ 
+  <app-loader></app-loader>
   <!-----------Exercise Banner end------------>
 
   <section class="container">
@@ -28,8 +31,7 @@
         </div>
       </div>
       <aside class="sidebar">
-          <app-sidebar [subCategory]="subCategories"></app-sidebar>
-
+          <app-sidebar [subCategory]="subCategories"  [popularTag]="PopularTags"></app-sidebar>
       </aside>
     </div>
   </section>

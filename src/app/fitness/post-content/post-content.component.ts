@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Article } from 'src/app/ViewModels/article';
+import { ArticleVM } from 'src/app/ViewModels/articleVM';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,11 +11,14 @@ import { environment } from 'src/environments/environment';
 })
 export class PostContentComponent implements OnInit {
 
-  @Input() article: Article;
+  @Input() article: ArticleVM;
   ImageUrl = environment.ImageUrl;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  showArticleDetail(cat:string,catId:number,artId:number){
+    this.router.navigate(['fitness/'+cat+'/'+catId+'/'+artId]);
+  }
 }

@@ -1,8 +1,9 @@
-export class Article{
+export class ArticleVM{
   id:number;
+  categoryName:string;
   categoryId:number;
-  subCategoryId:number;
-  headingName:string;
+  subCategoryName:string;
+  heading:string;
   shortArticle:string;
   visible?:boolean;
   articleInEnglish?:string;

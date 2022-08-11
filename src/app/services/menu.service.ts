@@ -14,6 +14,10 @@ export class CategoryService {
   bindVisibleCategory(){
     return this.http.get(this.baseUrl+"category/bindVisibleCategory");
   }
+  getCategorybyId(id){
+    return this.http.get(this.baseUrl+"category/categoryById/"+id);
+  }
+
   //--- Sub Category
 
   // get by category
