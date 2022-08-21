@@ -7,10 +7,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './Layout/header/header.component';
 import { HomeComponent } from './fitness/home/home.component';
 import { FooterComponent } from './Layout/footer/footer.component';
-import { ExcerciseComponent } from './fitness/excercise/excercise.component';
-import { DietComponent } from './fitness/diet/diet.component';
-import { SupplimentComponent } from './fitness/suppliment/suppliment.component';
-import { SteriodComponent } from './fitness/steriod/steriod.component';
 import { AboutComponent } from './fitness/about/about.component';
 import { SidebarComponent } from './Layout/sidebar/sidebar.component';
 import { PostContentComponent } from './fitness/post-content/post-content.component';
@@ -21,6 +17,7 @@ import { ArticleComponent } from './fitness/Article/article.component';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './services/loader.service';
 import { LoaderInterceptor } from './services/loader.interceptor';
+import { PopularPostComponent } from './fitness/popular-post/popular-post.component';
 
 @NgModule({
   declarations: [
@@ -28,16 +25,13 @@ import { LoaderInterceptor } from './services/loader.interceptor';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    ExcerciseComponent,
-    DietComponent,
-    SupplimentComponent,
-    SteriodComponent,
     AboutComponent,
     SidebarComponent,
     PostContentComponent,
     FitnessComponent,
     ArticleComponent,
-    LoaderComponent
+    LoaderComponent,
+    PopularPostComponent
   ],
   imports: [
     BrowserModule,

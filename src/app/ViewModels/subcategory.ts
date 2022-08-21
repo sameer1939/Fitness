@@ -3,4 +3,5 @@ export class SubCategory{
     categoryId:number;
     subCategoryName:string;
     visible?:boolean;
+    category:[]
 }

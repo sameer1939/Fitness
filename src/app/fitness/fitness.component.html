@@ -9,7 +9,7 @@
     </div>
   </section>
  
-  <app-loader></app-loader>
+ 
   <!-----------Exercise Banner end------------>
 
   <section class="container">
@@ -25,13 +25,13 @@
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              <button class="btn">Load More</button>
+              <button class="btn" *ngIf="this.articles.length>=5" (click)="LoadMoreArticles()">Load More</button>
             </div>
           </section>
         </div>
       </div>
       <aside class="sidebar">
-          <app-sidebar [subCategory]="subCategories"  [popularTag]="PopularTags"></app-sidebar>
+          <app-sidebar [subCategory]="subCategories" [popularTag]="PopularTags" [popularArticles]="popularArt"></app-sidebar>
       </aside>
     </div>
   </section>

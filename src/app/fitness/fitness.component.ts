@@ -16,14 +16,20 @@ import { Subscription } from "rxjs";
   templateUrl: "./fitness.component.html",
   styleUrls: ["./fitness.component.css"],
 })
-export class FitnessComponent implements OnInit {
+export class FitnessComponent implements OnInit, OnDestroy {
   articles: Array<ArticleVM> = [];
+  popularArt: Array<ArticleVM> = [];
   subCategories: Array<SubCategory> = [];
   PopularTags: Array<SubCategory> = [];
   category: Category;
   mainId: number;
+  subCatId:number;
   ImageUrl = environment.ImageUrl;
-  subscriptions: Subscription[];
+  articleSubs: Subscription;
+  subCategoriesSub: Subscription;
+  popularTagSub: Subscription;
+  popularArtSub: Subscription;
+  categorySub: Subscription;
   constructor(
     private articleService: ArticleService,
     private route: ActivatedRoute,
@@ -35,31 +41,61 @@ export class FitnessComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((val) => {
-      if (this.route.snapshot.paramMap.get("id")) {
+    this.route.url.subscribe((val) => {
+      if (this.route.snapshot.paramMap.get("id") || this.route.snapshot.paramMap.get("subCatId")) {
         this.mainId = +this.route.snapshot.params["id"];
-        this.articleService
-          .getVisibleArticles(this.mainId)
+        if(this.route.snapshot.paramMap.get("subCatId")){
+          this.subCatId = +this.route.snapshot.params["subCatId"];
+          this.articleSubs = this.articleService
+          .getVisibleArticlesBySubCategory(this.subCatId,5)
           .subscribe((data: any[]) => {
             this.articles = data;
           });
+        }
+        else{
+          this.articleSubs = this.articleService
+          .getVisibleArticles(this.mainId,5)
+          .subscribe((data: any[]) => {
+            this.articles = data;
+          });
+        }
+        
 
-        this.categoryService.getSubCatByCategoryId(this.mainId).subscribe((data: SubCategory[]) => {
+        this.subCategoriesSub = this.categoryService.getSubCatByCategoryId(this.mainId).subscribe((data: SubCategory[]) => {
           this.subCategories = data;
         })
 
-        this.subCategory.getRandomVisibleSubCategory(10).subscribe((result: SubCategory[]) => {
+        this.popularTagSub = this.subCategory.getRandomVisibleSubCategory(10).subscribe((result: SubCategory[]) => {
           this.PopularTags = result
         })
 
-        this.categoryService.getCategorybyId(this.mainId).subscribe((data: Category) => {
+        this.categorySub = this.categoryService.getCategorybyId(this.mainId).subscribe((data: Category) => {
           this.category = data;
         });
+
+        this.popularArtSub = this.articleService
+          .getTopPopularArticles(5)
+          .subscribe((data: any[]) => {
+            this.popularArt = data;
+          });
       }
-
-
     });
   }
 
+  LoadMoreArticles() {
+    this.articleService.getMoreArticles(this.articles.length, 5).subscribe((data: ArticleVM[]) => {
+      if (data.length > 0)
+        this.articles = [...this.articles, ...data];//  merge array with existing to new array
+      else
+        alert('No Further records found');
+    });
+  }
 
+  ngOnDestroy(): void {
+    this.articleSubs.unsubscribe();
+    this.subCategoriesSub.unsubscribe();
+    this.popularTagSub.unsubscribe();
+    this.popularArtSub.unsubscribe();
+    this.categorySub.unsubscribe();
+  }
 }

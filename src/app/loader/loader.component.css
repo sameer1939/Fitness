@@ -1,60 +1,43 @@
 .container{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    z-index: 99;
-}
-
-.circle{
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    animation: circle 1s linear infinite;
-}
-
-@keyframes circle{
-    0%{
-        transform: rotate(0deg);
-        box-shadow: 1px 5px 2px red;
-    }
-    50%{
-        transform: rotate(180deg);
-        box-shadow: 1px 5px 2px #1518be;
-    }
-    100%{
-        transform: rotate(360deg);
-        box-shadow: 1px 5px 2px #10ee40;
-    }
-    
-}
-.circle::before{
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 0;
-    height: 100%;
+    background: rgb(250, 244, 244);
+    height: 730px;
     width: 100%;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(214,211,211,0.3);
+    opacity: 0.5;
+    z-index: 9999999;
 }
-span{
-    color: #000;
-    font-size: 20px;
-    letter-spacing: 1px;
-    animation: text 2s ease-in-out infinite;
-    line-height: 200px;
-}
-
-@keyframes text{
-    0%{
-        color: #000;
-    }
-    0%{
-        color: #ec4164;
-    }
-    0%{
-        color: #259925;
-    }
-}
+figure { 
+    position: absolute;
+    margin: auto;
+    top: 0; bottom: 0; left: 0; right: 0;
+    width: 6.250em; height: 6.250em;
+    animation: rotate 2.4s linear infinite;
+  }
+  .white { 
+    top: 0; bottom: 0; left: 0; right: 0; 
+    background: white; 
+    animation: flash 2.4s linear infinite;
+    opacity: 0;
+  }
+  .dot {
+    position: absolute;
+    margin: auto;
+    width: 2.4em; height: 2.4em;
+    border-radius: 100%;
+    transition: all 1s ease;
+  }
+  .dot:nth-child(2) { top: 0; bottom: 0; left: 0; background: #FF4444; animation: dotsY 2.4s linear infinite; }
+  .dot:nth-child(3) { left: 0; right: 0; top: 0; background: #FFBB33; animation: dotsX 2.4s linear infinite; }
+  .dot:nth-child(4) { top: 0; bottom: 0; right: 0; background: #99CC00; animation: dotsY 2.4s linear infinite; }
+  .dot:nth-child(5) { left: 0; right: 0; bottom: 0; background: #33B5E5; animation: dotsX 2.4s linear infinite; }
+  
+  @keyframes rotate {
+    0% { transform: rotate( 0 ); }
+    10% { width: 6.250em; height: 6.250em; }
+    66% { width: 2.4em; height: 2.4em; }
+    100%{ transform: rotate(360deg); width: 6.250em; height: 6.250em; }
+  }
+  
+  @keyframes dotsY {
+    66% { opacity: .1; width: 2.4em; }
+    77%{ opacity: 1; width: 0; }
+  }

@@ -1,18 +1,19 @@
 <div class="category">
   <h2>Category</h2>
   <ul class="category-list">
-    <li *ngFor="let subCat of subCategory" class="list-items" >
-      <a href="#">{{subCat.subCategoryName}}</a>
+    <li *ngFor="let subCat of subCategory" class="list-items">
+      <a style="cursor: pointer;"
+        (click)="showArticleDetailByCategory(subCat.category.name,subCat.categoryId,subCat.id)">{{subCat.subCategoryName}}</a>
       <span>(05)</span>
     </li>
   </ul>
 </div>
 <div class="popular-post">
   <h2>Popular Post</h2>
-  <div class="post-content" >
+  <div class="post-content" *ngFor="let item of popularArticles;">
     <div class="post-image">
       <div>
-        <img src="../../../assets/popular-post/m-blog-1.jpg" class="img" alt="blog1">
+        <img src="{{ImageUrl}}{{item.image}}" class="img" alt="blog1">
       </div>
       <div class="post-info flex-row">
         <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
@@ -21,82 +22,24 @@
       </div>
     </div>
     <div class="post-title">
-      <a href="#">New data recording system to better analyse road accidents</a>
-    </div>
-  </div>
-  <div class="post-content" >
-    <div class="post-image">
-      <div>
-        <img src="../../../assets/popular-post/m-blog-2.jpg" class="img" alt="blog1">
-      </div>
-      <div class="post-info flex-row">
-        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-          2019</span>
-        <span>2 Commets</span>
-      </div>
-    </div>
-    <div class="post-title">
-      <a href="#">New data recording system to better analyse road accidents</a>
-    </div>
-  </div>
-  <div class="post-content" >
-    <div class="post-image">
-      <div>
-        <img src="../../../assets/popular-post/m-blog-3.jpg" class="img" alt="blog1">
-      </div>
-      <div class="post-info flex-row">
-        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-          2019</span>
-        <span>2 Commets</span>
-      </div>
-    </div>
-    <div class="post-title">
-      <a href="#">New data recording system to better analyse road accidents</a>
-    </div>
-  </div>
-  <div class="post-content" >
-    <div class="post-image">
-      <div>
-        <img src="../../../assets/popular-post/m-blog-4.jpg" class="img" alt="blog1">
-      </div>
-      <div class="post-info flex-row">
-        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-          2019</span>
-        <span>2 Commets</span>
-      </div>
-    </div>
-    <div class="post-title">
-      <a href="#">New data recording system to better analyse road accidents</a>
-    </div>
-  </div>
-  <div class="post-content" >
-    <div class="post-image">
-      <div>
-        <img src="../../../assets/popular-post/m-blog-5.jpg" class="img" alt="blog1">
-      </div>
-      <div class="post-info flex-row">
-        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-          2019</span>
-        <span>2 Commets</span>
-      </div>
-    </div>
-    <div class="post-title">
-      <a href="#">New data recording system to better analyse road accidents</a>
+      <a style="cursor: pointer;" (click)="showArticleDetail(item.categoryName,item.categoryId, item.id)" >{{item.heading}}</a>
     </div>
   </div>
 </div>
 <div class="newsletter">
   <h2>Newsletter</h2>
   <div class="form-element">
-    <input type="text" class="input-element" placeholder="Email">
-    <button class="btn form-btn">Subscribe</button>
+    <input type="text" class="input-element" placeholder="Email" #subscribeEmail>
+    <button class="btn form-btn" (click)="AddSubscribers(subscribeEmail)">Subscribe</button>
   </div>
 </div>
 <div class="popular-tags">
   <h2>Popular Tags</h2>
   <div class="tags flex-row">
-    <span *ngFor="let popTags of popularTag;" class="tag" data-aos="flip-up"
-      data-aos-delay="100">{{popTags.subCategoryName}}</span>
+    <span *ngFor="let popTags of popularTag;" class="tag" data-aos="flip-up" data-aos-delay="100">
+      <a style="cursor: pointer;"
+        (click)="showArticleDetailByCategory(popTags.category.name,popTags.categoryId,popTags.id)">{{popTags.subCategoryName}}</a>
+    </span>
 
 
   </div>

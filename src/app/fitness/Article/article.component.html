@@ -1,5 +1,5 @@
 <main>
-  <app-loader></app-loader>
+
   <section class="container">
     <div class="site-content" style="margin-top: 50px">
       <div class="posts">
@@ -27,18 +27,18 @@
           </div>
           <div class="post-title"  #articleContent>
             <div *ngIf="!languageInHindi">
-              <div [innerHTML]="article.articleInEnglish">
+              <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(article.articleInEnglish) ">
               </div>
             </div>
             <div *ngIf="languageInHindi">
-              <div [innerHTML]="article.articleInHindi">
+              <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(article.articleInHindi)">
               </div>
             </div>
           </div>
         </div>
       </div>
       <aside class="sidebar">
-        <app-sidebar [subCategory]="subCategories" [popularTag]="PopularTags"></app-sidebar>
+        <app-sidebar [subCategory]="subCategories" [popularTag]="PopularTags" [popularArticles]="popularArt"></app-sidebar>
       </aside>
     </div>
   </section>

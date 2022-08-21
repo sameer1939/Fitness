@@ -1,6 +1,6 @@
 <!----------------------------- Main Site Section ------------------------------>
 
-<main>
+<main >
   
   <!------------------------ Site Title ---------------------->
 
@@ -11,7 +11,7 @@
       <button class="btn" (click)="scroll(articleContent)">Explore</button>
     </div>
   </section>
-  <app-loader></app-loader>
+
   <!------------x----------- Site Title ----------x----------->
 
   <!-- --------------------- Blog Carousel ----------------- -->
@@ -78,13 +78,13 @@
         <div class="pagination flex-row">
           <section class="loadMoreSection">
             <div class="site-background">
-              <button class="btn">Load More</button>
+              <button class="btn" *ngIf="this.articles.length>=5" (click)="LoadMoreArticles()">Load More</button>
             </div>
           </section>
         </div>
       </div>
       <aside class="sidebar">
-        <app-sidebar [subCategory]="subCategories" [popularTag]="PopularTags"></app-sidebar>
+        <app-sidebar [subCategory]="subCategories" [popularTag]="PopularTags" [popularArticles]="popularArt"></app-sidebar>
       </aside>
     </div>
   </section>
