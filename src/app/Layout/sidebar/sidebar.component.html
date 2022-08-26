@@ -3,8 +3,8 @@
   <ul class="category-list">
     <li *ngFor="let subCat of subCategory" class="list-items">
       <a style="cursor: pointer;"
-        (click)="showArticleDetailByCategory(subCat.category.name,subCat.categoryId,subCat.id)">{{subCat.subCategoryName}}</a>
-      <span>(05)</span>
+        (click)="showArticleDetailByCategory(subCat.categoryName,subCat.categoryId,subCat.id)">{{subCat.subCategoryName}}</a>
+      <span>({{subCat.cntArticles}})</span>
     </li>
   </ul>
 </div>
@@ -16,8 +16,7 @@
         <img src="{{ImageUrl}}{{item.image}}" class="img" alt="blog1">
       </div>
       <div class="post-info flex-row">
-        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-          2019</span>
+        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{item.insertedDate | date}}</span>
         <span>2 Commets</span>
       </div>
     </div>
@@ -36,9 +35,9 @@
 <div class="popular-tags">
   <h2>Popular Tags</h2>
   <div class="tags flex-row">
-    <span *ngFor="let popTags of popularTag;" class="tag" data-aos="flip-up" data-aos-delay="100">
+    <span *ngFor="let popTags of popularTag;" class="tag" >
       <a style="cursor: pointer;"
-        (click)="showArticleDetailByCategory(popTags.category.name,popTags.categoryId,popTags.id)">{{popTags.subCategoryName}}</a>
+        (click)="showArticleDetailByCategory(popTags.categoryName,popTags.categoryId,popTags.id)">{{popTags.subCategoryName}}</a>
     </span>
 
 

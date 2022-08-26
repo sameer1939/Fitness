@@ -2,7 +2,7 @@
     <div class="circle"> </div>
     <span>LOADING...</span>
 </div> -->
-<div class="container" *ngIf="show">
+<!-- <div class="container" >
 <figure>
     <div class="dot white"></div>
     <div class="dot"></div>
@@ -10,4 +10,10 @@
     <div class="dot"></div>
     <div class="dot"></div>
 </figure>
-</div>
+</div> -->
+
+<div class="overlay" *ngIf="show">
+    <mat-progress-spinner class="spinner"
+                          mode="indeterminate">
+    </mat-progress-spinner>
+  </div>

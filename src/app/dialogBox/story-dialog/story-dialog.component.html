@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>{{data.videoTitle}}</h2>
+<mat-dialog-content class="mat-typography">
+    <video class="vid" loop="" type="video/mp4" muted="" autoplay>
+        <source [src]="data.videoUrl" type="video/mp4">
+      </video>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

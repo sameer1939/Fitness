@@ -9,4 +9,6 @@ export class ArticleVM{
   articleInEnglish?:string;
   articleInHindi?:string;
   image:string;
+  totalViews:string;
+  insertedDate:Date
 }

@@ -15,9 +15,16 @@ import { CategoryService } from './services/menu.service';
 import { ArticleService } from './services/article.service';
 import { ArticleComponent } from './fitness/Article/article.component';
 import { LoaderComponent } from './loader/loader.component';
-import { LoaderService } from './services/loader.service';
 import { LoaderInterceptor } from './services/loader.interceptor';
 import { PopularPostComponent } from './fitness/popular-post/popular-post.component';
+import { SafeHTMLPipe } from './pipes/safeHTML.pipe';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { StoryService } from './services/Story.service';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import { StoryDialogComponent } from './dialogBox/story-dialog/story-dialog.component'
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -31,14 +38,21 @@ import { PopularPostComponent } from './fitness/popular-post/popular-post.compon
     FitnessComponent,
     ArticleComponent,
     LoaderComponent,
-    PopularPostComponent
+    PopularPostComponent,
+    SafeHTMLPipe,
+    StoryDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule,
+    CarouselModule,
+    MatDialogModule,
+    MatButtonModule
   ],
-  providers: [CategoryService,ArticleService,
+  providers: [CategoryService, ArticleService,StoryService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })

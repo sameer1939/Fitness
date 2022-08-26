@@ -175,8 +175,8 @@ p{
 
 /* --------------- Site title ---------------- */
 main .site-title{
-    background: url('../fitnessbanner.jpg');
-    background-size: cover;
+    background: url('../fitnessbanner1.jpg');
+    background-size: 100% 100%;
     height: 80vh;
     display: flex;
     justify-content: center;
@@ -222,7 +222,7 @@ main .blog{
     background: url('../assets/Abract01.png');
     background-repeat: no-repeat;
     background-position: right;
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     background-size: 65%;
 }
@@ -236,6 +236,7 @@ main .blog-post .blog-content{
     flex-direction: column;
     text-align: center;
     width: 80%;
+    height: 60vh;
     margin: 3rem 2rem;
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
 }

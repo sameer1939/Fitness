@@ -16,8 +16,7 @@
            
             <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Sameer Khan</span>
             &nbsp;&nbsp;
-            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January
-              14, 2019</span>
+            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{article.insertedDate | date}}</span>
 
           </div>
           <div class="post-image">
@@ -27,11 +26,11 @@
           </div>
           <div class="post-title"  #articleContent>
             <div *ngIf="!languageInHindi">
-              <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(article.articleInEnglish) ">
+              <div [innerHTML]="article.articleInEnglish | safeHTML">
               </div>
             </div>
             <div *ngIf="languageInHindi">
-              <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(article.articleInHindi)">
+              <div [innerHTML]="article.articleInHindi | safeHTML">
               </div>
             </div>
           </div>

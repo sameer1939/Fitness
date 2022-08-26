@@ -5,8 +5,8 @@
         <img src="{{ImageUrl}}{{article.image}}" class="img" alt="blog1">
       </div>
       <div class="post-info flex-row">
-        <span><i class="fas fa-eye text-gray"></i>&nbsp;&nbsp;1.2M</span>
-        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14, 2019</span>
+        <span><i class="fas fa-eye text-gray"></i>&nbsp;&nbsp;{{article.totalViews}}</span>
+        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{article.insertedDate | date}}</span>
         <span>2 Comments</span>
       </div>
     </div>

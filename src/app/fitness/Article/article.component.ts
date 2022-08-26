@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css'],
 })
-export class ArticleComponent implements OnInit, OnDestroy {
+export class ArticleComponent implements OnInit {
 
   artId: number;
   article: ArticleVM;
@@ -27,24 +27,24 @@ export class ArticleComponent implements OnInit, OnDestroy {
   subCategorieSub: Subscription;
   PopularTagSub: Subscription;
   popularArtSub: Subscription;
+  articleSub: Subscription;
 
 
   constructor(private articleService: ArticleService, private route: ActivatedRoute,
     private categoryService: CategoryService,
-    private subCategory: SubcategoryService,public sanitizer: DomSanitizer) { }
+    private subCategory: SubcategoryService, public sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-   
+
     this.route.url.subscribe((val) => {
 
       if (this.route.snapshot.paramMap.get("artId")) {
-        
+
         this.artId = +this.route.snapshot.params["artId"];
+        //alert(this.artId);
         this.getArticleDetail(this.artId);
 
-        this.articleService.updateViews(this.artId).subscribe(() => {
-          console.log('updated');
-        })
+
 
         this.subCategorieSub = this.categoryService.getSubCatByCategoryId(+this.route.snapshot.params["id"]).subscribe((data: SubCategory[]) => {
           this.subCategories = data;
@@ -58,12 +58,16 @@ export class ArticleComponent implements OnInit, OnDestroy {
           .subscribe((data: any[]) => {
             this.popularArt = data;
           });
+
+        this.articleService.updateViews(this.artId).subscribe(() => {
+          console.log('updated');
+        })
       }
     });
   }
 
   getArticleDetail(id) {
-    this.articleService.getArticlesById(id).subscribe((data: ArticleVM) => {
+    this.articleSub = this.articleService.getArticlesById(id).subscribe((data: ArticleVM) => {
       this.article = data;
     })
   }
@@ -77,6 +81,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
     this.subCategorieSub.unsubscribe();
     this.PopularTagSub.unsubscribe();
     this.popularArtSub.unsubscribe();
+    this.articleSub.unsubscribe();
   }
 
 }

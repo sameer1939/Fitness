@@ -1,26 +1,46 @@
 <!----------------------------- Main Site Section ------------------------------>
 
-<main >
-  
+<main>
+
   <!------------------------ Site Title ---------------------->
 
   <section class="site-title">
-    <div class="site-background" >
+    <div class="site-background mySlides" data-aos="fade-up" data-aos-delay="100">
       <h3>NO EXCUSES</h3>
       <h1>A One Hour Workout is Only 4% of Your Day</h1>
       <button class="btn" (click)="scroll(articleContent)">Explore</button>
     </div>
+    <div class="site-background mySlides" data-aos="fade-up" data-aos-delay="100">
+      <h3>DO TODAY</h3>
+      <h1>Nothing Will Work Unless You Do</h1>
+      <button class="btn" (click)="scroll(articleContent)">Explore</button>
+    </div>
+    <div class="site-background mySlides" data-aos="fade-up" data-aos-delay="100">
+      <h3>NO PAIN NO GAIN</h3>
+      <h1>The Pain You Feel Today, Will be The Strength You Feel Tomorrow</h1>
+      <button class="btn" (click)="scroll(articleContent)">Explore</button>
+    </div>
+    <div class="site-background mySlides" data-aos="fade-up" data-aos-delay="100">
+      <h3>DO IT NOT WISH IT</h3>
+      <h1>You Don't Get What You Wish For. You Get What You Work For.</h1>
+      <button class="btn" (click)="scroll(articleContent)">Explore</button>
+    </div>
+    <button class="w3-button w3-black w3-display-left" (click)="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" (click)="plusDivs(1)">&#10095;</button>
   </section>
+
+
 
   <!------------x----------- Site Title ----------x----------->
 
   <!-- --------------------- Blog Carousel ----------------- -->
 
-  <section>
+  <!-- <section>
     <div class="blog">
       <div class="container">
         <div class="owl-carousel owl-theme blog-post">
-          <div class="blog-content" >
+
+          <div class="blog-content">
             <img src="../../../assets/Blog-post/post-1.jpg" alt="post-1" />
             <div class="blog-title">
               <h3>London Fashion week's continued the evolution</h3>
@@ -36,7 +56,7 @@
               <span>2 minutes</span>
             </div>
           </div>
-          <div class="blog-content" >
+          <div class="blog-content">
             <img src="../../../assets/Blog-post/post-2.jpg" alt="post-1" />
             <div class="blog-title">
               <h3>London Fashion week's continued the evolution</h3>
@@ -44,7 +64,7 @@
               <span>2 minutes</span>
             </div>
           </div>
-          <div class="blog-content" >
+          <div class="blog-content">
             <img src="../../../assets/Blog-post/post-5.png" alt="post-1" />
             <div class="blog-title">
               <h3>London Fashion week's continued the evolution</h3>
@@ -53,17 +73,65 @@
             </div>
           </div>
         </div>
+
         <div class="owl-navigation">
-          <span class="owl-nav-prev"
-            ><i class="fas fa-long-arrow-alt-left"></i
-          ></span>
-          <span class="owl-nav-next"
-            ><i class="fas fa-long-arrow-alt-right"></i
-          ></span>
+          <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+          <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
         </div>
       </div>
     </div>
+  </section> -->
+  <section>
+    <div class="blog">
+      <div class="container">
+        <owl-carousel-o class="blog-post" [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let story of stories" [id]="story.id">
+            <div class="blog-content">
+              <video  class="vid" loop="" type="video/mp4" muted="">
+                <source [src]="story.videoUrl" type="video/mp4">
+              </video>
+              <div class="blog-title">
+                <h3>{{story.videoTitle}}</h3>
+                <button class="btn btn-blog" (click)="openDialog(story.videoUrl,story.videoTitle)">Watch Now</button>
+                <!-- <span>2 minutes</span> -->
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+        <!-- <div class="owl-navigation">
+          <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+          <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+        </div> -->
+      </div>
+    </div>
   </section>
+
+  <!-- <section>
+    <div class="blog">
+      <div class="container">
+
+        <div class="owl-carousel owl-theme blog-post">
+          <div *ngFor="let item of stories;">
+            <div class="blog-content">
+              <video width="360" height="220" class="vid" loop="" type="video/mp4" muted="">
+                <source src="{{item.videoUrl}}" type="video/mp4">
+              </video>
+              <div class="blog-title">
+                <h3>{{item.videoTitle}}</h3>
+                <button class="btn btn-blog">Watch Now</button>
+                <span>2 minutes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="owl-navigation">
+          <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+          <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+        </div>
+      </div>
+    </div>
+  </section> -->
 
   <!-- ----------x---------- Blog Carousel --------x-------- -->
 
@@ -84,7 +152,8 @@
         </div>
       </div>
       <aside class="sidebar">
-        <app-sidebar [subCategory]="subCategories" [popularTag]="PopularTags" [popularArticles]="popularArt"></app-sidebar>
+        <app-sidebar [subCategory]="subCategories" [popularTag]="PopularTags" [popularArticles]="popularArt">
+        </app-sidebar>
       </aside>
     </div>
   </section>
