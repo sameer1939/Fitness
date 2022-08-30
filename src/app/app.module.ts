@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { StoryDialogComponent } from './dialogBox/story-dialog/story-dialog.component'
 import {MatButtonModule} from '@angular/material/button';
+import { NotfoundComponent } from './Layout/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MatButtonModule} from '@angular/material/button';
     LoaderComponent,
     PopularPostComponent,
     SafeHTMLPipe,
-    StoryDialogComponent
+    StoryDialogComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

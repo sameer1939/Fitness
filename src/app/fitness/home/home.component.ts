@@ -11,6 +11,7 @@ import { StoryService } from "src/app/services/Story.service";
 import { SubcategoryService } from "src/app/services/subcategory.service";
 import { ArticleVM } from "src/app/ViewModels/articleVM";
 import { SubCategory } from "src/app/ViewModels/subcategory";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-home",
@@ -20,15 +21,16 @@ import { SubCategory } from "src/app/ViewModels/subcategory";
 export class HomeComponent implements OnInit, OnDestroy {
   slideIndex = 1;
   articles: Array<ArticleVM> = [];
+  ImageUrl = environment.ImageUrl;
   subCategories: Array<SubCategory> = [];
   PopularTags: Array<SubCategory> = [];
   popularArt: Array<ArticleVM> = [];
   stories: Array<StoriesVM> = [];
 
   articleSub: Subscription;
-  subCategorieSub: Subscription;
-  PopularTagSub: Subscription;
-  popularArtSub: Subscription;
+  //subCategorieSub: Subscription;
+  //PopularTagSub: Subscription;
+  //popularArtSub: Subscription;
   storySub: Subscription;
 
   customOptions: OwlOptions = {
@@ -36,7 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    dots: false,
+    dots: true,
     navSpeed: 700,
     autoplay: true,
     autoplaySpeed: 700,
@@ -52,12 +54,12 @@ export class HomeComponent implements OnInit, OnDestroy {
         items: 3
       }
     },
-    nav: true
+    nav: false
   }
 
   constructor(private articleService: ArticleService, private menuService: CategoryService,
     private subCategory: SubcategoryService, private storyService: StoryService, private dialog: MatDialog) {
-    AOS.init();
+    //AOS.init();
   }
 
   ngOnInit(): void {
@@ -65,45 +67,50 @@ export class HomeComponent implements OnInit, OnDestroy {
     setInterval(() => {
       this.showDivs(this.slideIndex++);
     }, 6000);
-    this.articleSub = this.articleService.getVisibleArticles(0, 5).subscribe((data: any[]) => {
+    // this.articleSub = this.articleService.getVisibleArticles(0, 6).subscribe((data: any[]) => {
+    //   console.log(data);
+    //   this.articles = data;
+    // });
+
+    this.articleSub = this.articleService.getVisibleBasicsArticles(6).subscribe((data: any[]) => {
       console.log(data);
       this.articles = data;
     });
 
-    this.subCategorieSub = this.subCategory.getRandomVisibleSubCategory(5).subscribe((result: SubCategory[]) => {
-      this.subCategories = result
-    })
+    // this.subCategorieSub = this.subCategory.getRandomVisibleSubCategory(5).subscribe((result: SubCategory[]) => {
+    //   this.subCategories = result
+    // })
 
     this.storySub = this.storyService.bindVisibleStory().subscribe((result: StoriesVM[]) => {
       this.stories = result
     })
 
-    this.PopularTagSub = this.subCategory.getRandomVisibleSubCategory(10).subscribe((result: SubCategory[]) => {
-      this.PopularTags = result
-    });
-    this.popularArtSub = this.articleService
-      .getTopPopularArticles(5)
-      .subscribe((data: any[]) => {
-        this.popularArt = data;
-      });
+    // this.PopularTagSub = this.subCategory.getRandomVisibleSubCategory(10).subscribe((result: SubCategory[]) => {
+    //   this.PopularTags = result
+    // });
+    // this.popularArtSub = this.articleService
+    //   .getTopPopularArticles(5)
+    //   .subscribe((data: any[]) => {
+    //     this.popularArt = data;
+    //   });
   }
   scroll(el: HTMLElement) {
     el.scrollIntoView({ behavior: 'smooth' });
   }
 
-  LoadMoreArticles() {
-    this.articleService.getMoreArticles(this.articles.length, 5).subscribe((data: ArticleVM[]) => {
-      if (data.length > 0)
-        this.articles = [...this.articles, ...data];//  merge array with existing to new array
-      else
-        alert('No Further records found');
-    });
-  }
+  // LoadMoreArticles() {
+  //   this.articleService.getMoreArticles(this.articles.length, 5).subscribe((data: ArticleVM[]) => {
+  //     if (data.length > 0)
+  //       this.articles = [...this.articles, ...data];//  merge array with existing to new array
+  //     else
+  //       alert('No Further records found');
+  //   });
+  // }
   ngOnDestroy(): void {
     this.articleSub.unsubscribe();
-    this.subCategorieSub.unsubscribe();
-    this.PopularTagSub.unsubscribe();
-    this.popularArtSub.unsubscribe();
+    //this.subCategorieSub.unsubscribe();
+    //this.PopularTagSub.unsubscribe();
+    //this.popularArtSub.unsubscribe();
     this.storySub.unsubscribe();
   }
 

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscriber } from 'src/app/models/subscriber';
+import { AlertifyService } from 'src/app/services/alertify.service';
 import { ArticleService } from 'src/app/services/article.service';
 import { SubscriberService } from 'src/app/services/subscriber.service';
 import { Article } from 'src/app/ViewModels/article';
@@ -20,12 +21,12 @@ export class SidebarComponent implements OnInit {
   @Input() popularArticles:ArticleVM[];
   ImageUrl = environment.ImageUrl;
   obj = new Subscriber();
-  
+
   constructor(private router:Router,private articleService:ArticleService,
-    private subservice:SubscriberService) { }
+    private subservice:SubscriberService,private alertify:AlertifyService) { }
 
   ngOnInit(): void {
-    
+
   }
   showArticleDetail(cat:string,catId:number,subCatId:number){
     this.router.navigate(['article/'+cat+'/'+catId+'/'+subCatId]);
@@ -35,16 +36,16 @@ export class SidebarComponent implements OnInit {
   }
   AddSubscribers(Email:any){
     if(Email.value==""){
-      alert('please enter email');
+      this.alertify.warning("Please enter email!");
       return;
     }
     this.obj.email=Email.value;
     this.subservice.addSubscribers(this.obj).subscribe((data)=>{
-      alert("Success");
+      this.alertify.success("Thanks for subscribe we will update you on time");
     },error=>{
-      alert(error.error);
+      this.alertify.error(error.error);
     })
-    console.log(Email.value);
+    //console.log(Email.value);
   }
 
 }

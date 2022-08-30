@@ -9,11 +9,11 @@
             <button *ngIf="!languageInHindi" class="btnLanguage" (click)="changeLanguage(articleContent)">In Hindi</button>
           </div>
           <div class="post-title">
-            
+
             <a href="#">{{article.heading}}</a>
-            
+
             <hr />
-           
+
             <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Sameer Khan</span>
             &nbsp;&nbsp;
             <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{article.insertedDate | date}}</span>
@@ -34,7 +34,85 @@
               </div>
             </div>
           </div>
+
+
+
+
         </div>
+
+        <div class="comments-area">
+          <h4>03 Comments</h4>
+          <div class="comment-list">
+            <div class="single-comment justify-content-between d-flex">
+              <div class="user justify-content-between d-flex">
+                <div class="thumb">
+                  <i class="fa fa-user" style="font-size:30px; width:30px;"></i>
+                </div>
+                <div class="desc">
+                  <h5>Emilly Blunt</h5>
+                  <p class="date">December 4, 2017 at 3:12 pm </p>
+                  <p class="comment">
+                    Never say goodbye till the end comes!
+                  </p>
+                </div>
+              </div>
+              <div class="reply-btn">
+                <a href="" class="btn-reply text-uppercase">reply</a>
+              </div>
+            </div>
+          </div>
+          <div class="comment-list left-padding">
+            <div class="single-comment justify-content-between d-flex">
+              <div class="user justify-content-between d-flex">
+                <div class="thumb">
+                  <i class="fa fa-user" style="font-size:30px; width:30px;"></i>
+                </div>
+                <div class="desc">
+                  <h5>Elsie Cunningham</h5>
+                  <p class="date">December 4, 2017 at 3:12 pm </p>
+                  <p class="comment">
+                    I am Reply of above comment.
+                  </p>
+                </div>
+              </div>
+              <div class="reply-btn">
+                <a href="" class="btn-reply text-uppercase">reply</a>
+              </div>
+            </div>
+          </div>
+          <div id="divider-transparent"></div>
+          <div class="comment-list">
+            <div class="single-comment justify-content-between d-flex">
+              <div class="user justify-content-between d-flex">
+                <div class="thumb">
+                  <i class="fa fa-user" style="font-size:30px; width:30px;"></i>
+                </div>
+                <div class="desc">
+                  <h5>Ina Hayes</h5>
+                  <p class="date">December 4, 2017 at 3:12 pm </p>
+                  <p class="comment">
+                    Never say goodbye till the end comes!
+                  </p>
+                </div>
+              </div>
+              <div class="reply-btn">
+                <a href="" class="btn-reply text-uppercase">reply</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-box">
+          <hr />
+          <h2>Comments</h2>
+          <div class="form-elements">
+            <input type="text" class="input-element" placeholder="Name" >
+            <input type="text" class="input-element" placeholder="Email">
+            <textarea type="text" class="input-element" placeholder="Type your comment..." ></textarea>
+            <button class="btn form-btn">Post Comment</button>
+          </div>
+        </div>
+
       </div>
       <aside class="sidebar">
         <app-sidebar [subCategory]="subCategories" [popularTag]="PopularTags" [popularArticles]="popularArt"></app-sidebar>

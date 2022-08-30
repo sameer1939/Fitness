@@ -12,6 +12,11 @@ export class ArticleService {
   getVisibleArticles(cat:number,take:number) {
     return this.http.get(this.baseUrl + "article/bindVisibleArticleFrontend/"+cat+"/"+take);
   }
+
+  getVisibleBasicsArticles(take:number){
+    return this.http.get(this.baseUrl+"article/bindBasicArticleforHome/"+take);
+  }
+
   getVisibleArticlesBySubCategory(subCatId:number,take:number) {
     return this.http.get(this.baseUrl + "article/bindVisibleArticleBySubCategoryId/"+subCatId+"/"+take);
   }
