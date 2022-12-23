@@ -1,0 +1,26 @@
+
+.comment-box{
+  width: 100%;
+}
+
+.comment-box h2{
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.comment-box input{
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border:1px solid #86b0b6
+}
+.comment-box textarea{
+  width: 100%;
+  height: 150px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border:1px solid #86b0b6
+}

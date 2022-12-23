@@ -1,54 +1,288 @@
- <!-- --------------------------- Footer ---------------------------------------- -->
-
- <footer class="footer">
-    <div class="container">
-        <!-- <div class="about-us" >
-            <h2>About us</h2>
-            <p>
-                In this blog you will get a lot of information about exercises, diets, supplements and steroids. This website is just
-                for information so that you can use and execute on a safer side.
-            </p>
-            <a href="" style="color:white;">Read More...</a>
-        </div> -->
-        <div class="newsletter" >
-            <!-- <h2>Newsletter</h2>
-            <p>Stay update with our latest</p>
-            <div class="form-element">
-                <input type="text" placeholder="Email"  #subscribeEmail><span (click)="AddSubscribers(subscribeEmail)"><i class="fas fa-chevron-right"></i></span>
-            </div> -->
+<!-- Footer Wrapper -->
+<div id="footer-wrapper">
+  <div class="primary-footer">
+    <div class="container row">
+      <div
+        class="footer-about-area section"
+        id="footer-about-area"
+        name="About & Logo Section"
+      >
+        <div class="widget Image" data-version="2" id="Image150">
+          <a class="footer-logo custom-image" routerLink="/">
+            <img
+              alt="Apni Fitness"
+              id="Image150_img"
+              src="../../../assets/images/apnifitnesslogo2.png"
+            />
+          </a>
+          <p class="image-caption excerpt">
+            This website is all about information and learning purpose. On the
+            basis of my experience, i will provide information for fitness,
+            workout, diets, supplements and steroids in this blog.
+          </p>
         </div>
-        <div class="instagram" >
-            <!-- <h2>Instagram</h2>
-            <div class="flex-row">
-                <img src="../../../assets/instagram/thumb-card3.png" alt="insta1">
-                <img src="../../../assets/instagram/thumb-card4.png" alt="insta2">
-                <img src="../../../assets/instagram/thumb-card5.png" alt="insta3">
-            </div>
-            <div class="flex-row">
-                <img src="../../../assets/instagram/thumb-card6.png" alt="insta4">
-                <img src="../../../assets/instagram/thumb-card7.png" alt="insta5">
-                <img src="../../../assets/instagram/thumb-card8.png" alt="insta6">
-            </div> -->
+      </div>
+      <!-- Footer Social -->
+      <div
+        class="foot-bar-social social social-color section"
+        id="foot-bar-social"
+        name="Social Footer"
+      >
+        <div class="widget LinkList" data-version="2" id="LinkList78">
+          <div class="widget-content">
+            <ul>
+              <li class="facebook">
+                <a
+                  href="https://www.facebook.com/templatesyard/"
+                  target="_blank"
+                  title="facebook"
+                ></a>
+              </li>
+              <li class="twitter">
+                <a
+                  href="https://twitter.com/LiveBlogger1"
+                  target="_blank"
+                  title="twitter"
+                ></a>
+              </li>
+              <li class="skype">
+                <a href="#" target="_blank" title="skype"></a>
+              </li>
+              <li class="instagram">
+                <a
+                  href="https://www.instagram.com/livebloggerofficial/"
+                  target="_blank"
+                  title="instagram"
+                ></a>
+              </li>
+              <li class="youtube">
+                <a
+                  href="https://www.youtube.com/liveblogger"
+                  target="_blank"
+                  title="youtube"
+                ></a>
+              </li>
+              <li class="linkedin">
+                <a href="#" target="_blank" title="linkedin"></a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <!-- <div class="follow" >
-            <h2>Follow us</h2>
-            <p>Let us be Social</p>
-            <div>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-youtube"></i>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="container row">
+    <div class="footer-widgets-wrap">
+      <div
+        class="footer common-widget section"
+        id="footer-sec1"
+        name="Section (Left)"
+      >
+        <div class="widget PopularPosts" data-version="2" id="PopularPosts4">
+          <div class="widget-title">
+            <h3 class="title">Random Posts</h3>
+          </div>
+          <div class="widget-content">
+            <div class="post" *ngFor="let item of randomArticle">
+              <div class="post-content">
+                <a
+                  class="post-image-link"
+                  style="cursor: pointer"
+                  (click)="
+                    showArticleDetail(
+                      item.categoryName,
+                      item.categoryId,
+                      item.id
+                    )
+                  "
+                >
+                  <img
+                    alt="{{ item.image }}"
+                    class="post-thumb lazy-yard"
+                    src="{{ ImageUrl }}{{ item.image }}"
+                  />
+                </a>
+                <div class="post-info">
+                  <h2 class="post-title">
+                    <a
+                      style="cursor: pointer"
+                      (click)="
+                        showArticleDetail(
+                          item.categoryName,
+                          item.categoryId,
+                          item.id
+                        )
+                      "
+                      >{{ item.heading }}</a
+                    >
+                  </h2>
+                  <div class="post-meta">
+                    <span class="post-date published">{{
+                      item.insertedDate | date
+                    }}</span>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div> -->
+          </div>
+        </div>
+      </div>
+      <div
+        class="footer common-widget section"
+        id="footer-sec2"
+        name="Section (Center)"
+      >
+        <div class="widget FeaturedPost" data-version="2" id="FeaturedPost1">
+          <div class="widget-title">
+            <h3 class="title">Featured post</h3>
+          </div>
+          <div class="widget-content">
+            <div class="post" *ngIf="topArticle.length > 0">
+              <div class="post-content">
+                <a
+                  class="post-image-link"
+                  style="cursor: pointer"
+                  (click)="
+                    showArticleDetail(
+                      topArticle[0].categoryName,
+                      topArticle[0].categoryId,
+                      topArticle[0].id
+                    )
+                  "
+                >
+                  <img
+                    alt="{{ topArticle[0].image }}"
+                    class="post-thumb lazy-yard"
+                    src="{{ ImageUrl }}{{ topArticle[0].image }}"
+                  />
+                  <span class="post-tag">living</span>
+                </a>
+                <div class="post-info">
+                  <h2 class="post-title">
+                    <a
+                      style="cursor: pointer"
+                      (click)="
+                        showArticleDetail(
+                          topArticle[0].categoryName,
+                          topArticle[0].categoryId,
+                          topArticle[0].id
+                        )
+                      "
+                      >{{ popularArticles[0].heading }}</a
+                    >
+                  </h2>
+                  <div class="post-meta">
+                    <span class="post-author"
+                      ><a routerLink="/" target="_blank" title="Apni Fitness"
+                        >Apni Fitness</a
+                      ></span
+                    ><span class="post-date published">{{
+                      topArticle[0].insertedDate | date
+                    }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="footer common-widget section"
+        id="footer-sec3"
+        name="Section (Right)"
+      >
+        <div class="widget PopularPosts" data-version="2" id="PopularPosts4">
+          <div class="widget-title">
+            <h3 class="title">Popular Posts</h3>
+          </div>
+          <div class="widget-content">
+            <div class="post" *ngFor="let item of popularArticles">
+              <div class="post-content">
+                <a
+                  class="post-image-link"
+                  style="cursor: pointer"
+                  (click)="
+                    showArticleDetail(
+                      item.categoryName,
+                      item.categoryId,
+                      item.id
+                    )
+                  "
+                >
+                  <img
+                    alt="{{ item.image }}"
+                    class="post-thumb lazy-yard"
+                    src="{{ ImageUrl }}{{ item.image }}"
+                  />
+                </a>
+                <div class="post-info">
+                  <h2 class="post-title">
+                    <a
+                      style="cursor: pointer"
+                      (click)="
+                        showArticleDetail(
+                          item.categoryName,
+                          item.categoryId,
+                          item.id
+                        )
+                      "
+                      >{{ item.heading }}</a
+                    >
+                  </h2>
+                  <div class="post-meta">
+                    <span class="post-date published">{{
+                      item.insertedDate | date
+                    }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
     </div>
-    <div class="rights flex-row">
-        <h4 class="text-gray">
-            Copyright ©2022 All rights reserved 
-        </h4>
+  </div>
+  <div class="clearfix"></div>
+  <div id="sub-footer-wrapper">
+    <div class="container row">
+      <div class="menu-footer section" id="menu-footer" name="Footer Menu">
+        <div class="widget LinkList" data-version="2" id="LinkList76">
+          <div class="widget-title">
+            <h3 class="title">Footer Menu Widget</h3>
+          </div>
+          <div class="widget-content">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/about">About</a></li>
+              <li><a routerLink="/contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="copyright-area">
+        Design & Developed by
+        <a href="https://www.apnifitness.com/" rel="dofollow" title="Blogger"
+          >Apni Fitness</a
+        >
+        <div style="font-size: 1px; opacity: 0">
+          Design & Developed
+          <i
+            aria-hidden="true"
+            class="fa fa-heart"
+            style="color: red; margin: 0 2px"
+          ></i>
+          by
+          <a
+            href="https://www.apnifitness.com/"
+            id="mycontent"
+            rel="dofollow"
+            title="Blogger"
+            >Apni Fitness</a
+          >
+        </div>
+      </div>
     </div>
-    <div class="move-up">
-        <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
-    </div>
-</footer>
-
-<!-- -------------x------------- Footer --------------------x------------------- -->
+  </div>
+</div>

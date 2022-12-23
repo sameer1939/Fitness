@@ -1,6 +1,14 @@
+.vid{
+  width: 840px;
+  height: 360px;
+}
+
+.f-l{
+  float: left;
+}
+
 .btnLanguage {
-    background-color: #4CAF50;
-    /* Green */
+    background-color: #fe8a00;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -8,11 +16,11 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin-right: 30px;
-    position: relative;
-    float:right;
     cursor: pointer;
+    position: absolute;
+    left: 574px;
     z-index: 99;
+    top: 50px;
 }
 
 .comment-box{
@@ -90,10 +98,18 @@
   .comments-area .comment-list .single-comment .comment {
     font-size: 10px;
   }
+  .vid{
+    width: 440px;
+    height: 260px;
+  }
 }
 
 .comments-area .thumb {
   margin-right: 20px;
+  float: left;
+}
+.comments-area .date {
+  display: contents;
   float: left;
 }
 
@@ -116,8 +132,9 @@
   font-size: 12px;
   display: block;
   font-weight: 600;
-  text-align: right;
-  width: 20%;
+  margin-top: -50px;
+  width: 80px;
+  float: right;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;

@@ -10,6 +10,8 @@ import { ArticleVM } from "../ViewModels/articleVM";
 import { Category } from "../ViewModels/category";
 import { environment } from "src/environments/environment";
 import { Subscription } from "rxjs";
+import { StoryService } from "../services/Story.service";
+import { StoriesVM } from "../models/stories";
 
 @Component({
   selector: "app-fitness",
@@ -17,10 +19,12 @@ import { Subscription } from "rxjs";
   styleUrls: ["./fitness.component.css"],
 })
 export class FitnessComponent implements OnInit, OnDestroy {
+  thatisAll=false;
   articles: Array<ArticleVM> = [];
   popularArt: Array<ArticleVM> = [];
   subCategories: Array<SubCategory> = [];
   PopularTags: Array<SubCategory> = [];
+  stories: Array<StoriesVM> = [];
   category: Category;
   mainId: number;
   subCatId:number;
@@ -30,11 +34,13 @@ export class FitnessComponent implements OnInit, OnDestroy {
   popularTagSub: Subscription;
   popularArtSub: Subscription;
   categorySub: Subscription;
+  storySub: Subscription;
   constructor(
     private articleService: ArticleService,
     private route: ActivatedRoute,
     private categoryService: CategoryService,
-    private subCategory: SubcategoryService
+    private subCategory: SubcategoryService,
+    private storyService: StoryService
   ) {
     AOS.init();
 
@@ -59,7 +65,10 @@ export class FitnessComponent implements OnInit, OnDestroy {
             this.articles = data;
           });
         }
-        
+
+        this.storySub = this.storyService.bindVisibleStory().subscribe((result: StoriesVM[]) => {
+          this.stories = result
+        })
 
         this.subCategoriesSub = this.categoryService.getSubCatByCategoryId(this.mainId).subscribe((data: SubCategory[]) => {
           this.subCategories = data;
@@ -82,20 +91,20 @@ export class FitnessComponent implements OnInit, OnDestroy {
     });
   }
 
-  LoadMoreArticles() {
-    this.articleService.getMoreArticles(this.articles.length, 5).subscribe((data: ArticleVM[]) => {
-      if (data.length > 0)
-        this.articles = [...this.articles, ...data];//  merge array with existing to new array
-      else
-        alert('No Further records found');
-    });
-  }
-
   ngOnDestroy(): void {
     this.articleSubs.unsubscribe();
     this.subCategoriesSub.unsubscribe();
     this.popularTagSub.unsubscribe();
     this.popularArtSub.unsubscribe();
     this.categorySub.unsubscribe();
+    this.storySub.unsubscribe();
+  }
+  LoadMoreArticles() {
+    this.articleService.getMoreArticles(this.articles.length, 6).subscribe((data: ArticleVM[]) => {
+      if (data.length > 0)
+        this.articles = [...this.articles, ...data];//  merge array with existing to new array
+      else
+        this.thatisAll=true;
+    });
   }
 }

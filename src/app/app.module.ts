@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { LoaderInterceptor } from './services/loader.interceptor';
 import { PopularPostComponent } from './fitness/popular-post/popular-post.component';
 import { SafeHTMLPipe } from './pipes/safeHTML.pipe';
+import { LimitToPipe } from './pipes/limitTo.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { StoryService } from './services/Story.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -26,6 +28,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { StoryDialogComponent } from './dialogBox/story-dialog/story-dialog.component'
 import {MatButtonModule} from '@angular/material/button';
 import { NotfoundComponent } from './Layout/notfound/notfound.component';
+import { ReplyDialogComponent } from './dialogBox/reply-dialog/reply-dialog.component';
+import { CarouselComponent } from './Layout/carousel/carousel.component';
+import { ContactComponent } from './fitness/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +46,12 @@ import { NotfoundComponent } from './Layout/notfound/notfound.component';
     LoaderComponent,
     PopularPostComponent,
     SafeHTMLPipe,
+    LimitToPipe,
     StoryDialogComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ReplyDialogComponent,
+    CarouselComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +61,9 @@ import { NotfoundComponent } from './Layout/notfound/notfound.component';
     BrowserAnimationsModule,
     CarouselModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [CategoryService, ArticleService,StoryService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],

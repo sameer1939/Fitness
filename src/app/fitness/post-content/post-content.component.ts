@@ -21,4 +21,11 @@ export class PostContentComponent implements OnInit {
   showArticleDetail(cat:string,catId:number,artId:number){
     this.router.navigate(['article/'+cat+'/'+catId+'/'+artId]);
   }
+
+  showLimitedText(text,limit=50){
+    if (text.length > limit) {
+      return text.substr(0,limit) + '...';
+    }
+    return text;
+  }
 }

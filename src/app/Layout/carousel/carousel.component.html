@@ -1,0 +1,44 @@
+<div id="break-wrapper-outer">
+  <div class="row" id="break-wrapper">
+    <div class="section" id="break-section" name="News Ticker">
+      <div class="widget PopularPosts" data-version="2" id="PopularPosts2">
+        <div class="widget-title">
+          <h3 class="title"><b>Indian Athlete and Bodybuilder videos</b></h3>
+        </div>
+
+        <div class="widget-content">
+
+          <owl-carousel-o class="blog-post" [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of story" [id]="item.id">
+              <div class="ticker-item item-0">
+                <a
+                    class="post-image-link"
+                    style="cursor: pointer"
+                    (click)="openDialog(item.videoUrl, item.videoTitle)"
+                  >
+                    <img
+                      alt="{{ item.imageUrl }}"
+                      class="post-thumb lazy-yard"
+                      [src]="item.imageUrl"
+                    />
+                  </a>
+                  <div class="post-info">
+                    <span class="post-tag">Watch</span>
+                    <h2 class="post-title">
+                      <a
+                        style="cursor: pointer"
+                        (click)="openDialog(item.videoUrl, item.videoTitle)"
+                        >{{ item.videoTitle }}</a
+                      >
+                    </h2>
+                  </div>
+              </div>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearfix"></div>
+

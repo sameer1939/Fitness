@@ -1,30 +1,119 @@
- <!-- ----------------------------  Navigation ---------------------------------------------- -->
-
- <nav class="nav">
-    <div class="nav-menu flex-row">
-        <div class="nav-brand">
-            <a href="/" class="text-gray">Apna Fitness</a>
+<div id="top-bar">
+  <div class="container row">
+    <div class="top-bar-nav section" id="top-bar-nav" name="Top Navigation">
+      <div class="widget LinkList" data-version="2" id="LinkList72">
+        <div class="widget-content">
+          <ul>
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/about">About</a></li>
+            <li><a routerLink="/contact">Contact</a></li>
+          </ul>
         </div>
-        <div class="toggle-collapse">
-            <div class="toggle-icons">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-        <div>
-            <ul class="nav-items">
-                <li class="nav-link" *ngFor="let item of visibleMenu">
-                    <a routerLink="/fitness/{{item.name}}/{{item.id}}" routerLinkActive="active">{{item.name}}</a>
-                </li>
-
-            </ul>
-        </div>
-        <div class="social text-gray">
-            <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a> -->
-        </div>
+      </div>
     </div>
+    <!-- Top Social -->
+    <div
+      class="top-bar-social social section"
+      id="top-bar-social"
+      name="Social Top">
+      <div class="widget LinkList" data-version="2" id="LinkList73">
+        <div class="widget-content">
+          <ul>
+            <li class="facebook">
+              <a href="#" target="_blank" title="facebook"></a>
+            </li>
+            <li class="twitter">
+              <a
+                href="https://twitter.com/LiveBlogger1"
+                target="_blank"
+                title="twitter"
+              ></a>
+            </li>
+            <li class="instagram">
+              <a
+                href="https://www.instagram.com/livebloggerofficial/"
+                target="_blank"
+                title="instagram"
+              ></a>
+            </li>
+            <li class="pinterest">
+              <a href="#" target="_blank" title="pinterest"></a>
+            </li>
+            <li class="skype">
+              <a href="#" target="_blank" title="skype"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<div class="clearfix"></div>
+<!-- Header Wrapper -->
+<div id="header-wrap">
+  <div class="mobile-menu-wrap">
+    <div class="mobile-menu">
+      <ul id="main-menu-nav" role="menubar">
+        <li *ngFor="let mn of visibleMenu;" >
+          <a routerLink="/fitness/{{ mn.name }}/{{ mn.id }}"
+          routerLinkActive="active" role="menuitem">{{mn.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container row">
+    <div class="header-logo">
+      <div class="main-logo section" id="main-logo" name="Header Logo">
+        <div class="widget Header" data-version="2" id="Header1">
+          <div class="header-widget">
+            <a class="header-image-wrapper" routerLink="/">
+              <img
+                alt="Apni Fitness"
+                data-height="50"
+                data-width="125"
+                src="../../../assets/images/apnifitnessLogo.png"
+              />
+            </a>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-menu">
+      <div class="main-menu section" id="main-menu" name="Main Menu">
+        <div class="widget LinkList" data-version="2" id="LinkList74">
+          <ul id="main-menu-nav" role="menubar">
+            <li *ngFor="let mn of visibleMenu;" >
+              <a routerLink="/fitness/{{ mn.name }}/{{ mn.id }}"
+              routerLinkActive="active" role="menuitem">{{mn.name}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="nav-search">
+      <form
+        action="#"
+        class="search-form"
+        role="search"
+      >
+        <input
+          autocomplete="off"
+          class="search-input"
+          name="q"
+          placeholder="Search this blog"
+          type="search"
+          value=""
+        />
+        <span class="hide-search"></span>
+      </form>
+    </div>
+    <span class="show-search"></span>
+    <span class="mobile-menu-toggle"></span>
+  </div>
+</div>
+<div class="clearfix"></div>
+<!-- Main Top Bar -->
+<div class="clearfix"></div>
 
-</nav>
-<!-- ------------x---------------  Navigation --------------------------x------------------- -->

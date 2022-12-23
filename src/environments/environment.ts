@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  BaseUrl:"http://localhost:5000/api/",
-  ImageUrl:"http://localhost:5000/",
+  // BaseUrl:"http://localhost:5000/api/",
+  // ImageUrl:"http://localhost:5000/",
+  BaseUrl:"https://api.apnifitness.com/api/",
+  ImageUrl:"https://api.apnifitness.com/",
 };
 
 /*

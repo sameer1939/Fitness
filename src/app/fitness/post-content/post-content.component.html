@@ -1,4 +1,4 @@
-<hr>
+<!-- <hr>
 <div class="post-content">
     <div class="post-image">
       <div>
@@ -16,4 +16,67 @@
       </div>
       <button class="btn post-btn" (click)="showArticleDetail(article.categoryName,article.categoryId, article.id)">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
     </div>
+  </div> -->
+<!-- Main Wrapper -->
+
+<div class="blog-post hentry index-post post-0">
+  <div class="post-image-wrap">
+    <a
+      class="post-image-link"
+      href="javascript:void(0)"
+      (click)="
+        showArticleDetail(article.categoryName, article.categoryId, article.id)
+      "
+    >
+      <img
+        alt="{{ article.heading }}"
+        class="post-thumb lazy-yard"
+        src="{{ ImageUrl }}{{ article.image }}"
+      />
+    </a>
   </div>
+  <div class="post-info">
+    <a class="post-tag" >
+      {{ article.subCategoryName }}
+    </a>
+    <h2 class="post-title">
+      <a title="{{ article.heading}}"
+        href="javascript:void(0)"
+        (click)="
+          showArticleDetail(
+            article.categoryName,
+            article.categoryId,
+            article.id
+          )
+        "
+        >{{ article.heading }}</a
+      >
+    </h2>
+    <div class="index-post-footer">
+      <p class="post-snippet" [innerHTML]="showLimitedText(article.shortArticle,90)"></p>
+      <div class="post-meta">
+        <span class="post-author"
+          ><a href="javascript:void(0)" target="_blank" title="Apni Fitness"
+            >Apni Fitness</a
+          ></span
+        >
+        <span class="post-date published">{{
+          article.insertedDate | date
+        }}</span>
+      </div>
+      <a
+        class="read-more"
+        href="javascript:void(0)"
+        (click)="
+          showArticleDetail(
+            article.categoryName,
+            article.categoryId,
+            article.id
+          )
+        "
+        ><span>Read more</span></a
+      >
+    </div>
+  </div>
+</div>
+

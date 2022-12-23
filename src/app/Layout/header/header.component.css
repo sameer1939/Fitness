@@ -1,0 +1,39 @@
+.imgLogo{
+    display: block;
+    width: 150px;
+    max-width: 400px;
+    height: 60px;
+    z-index: 2;
+}
+
+@media only screen and (max-width: 520px){
+  .imgLogo{
+    position: relative;
+    display: block;
+    width: 150px;
+    max-width: 400px;
+    height: 60px;
+    z-index: 10;
+}
+}
+@media only screen and (max-width: 414px){
+  .imgLogo{
+    position: relative;
+    display: block;
+    width: 150px;
+    max-width: 400px;
+    height: 60px;
+    z-index: 10;
+}
+}
+
+@media only screen and (max-width: 750px){
+  .imgLogo{
+    position: relative;
+    display: block;
+    width: 150px;
+    max-width: 400px;
+    height: 60px;
+    z-index: 10;
+}
+}

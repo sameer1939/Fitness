@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>{{data.comment}}</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="comment-box">
+      <hr />
+      <h2>Reply to <b>{{data.replyTo}}</b></h2>
+      <div class="form-elements">
+        <form #commentForm="ngForm" (ngSubmit)="addComments(commentForm)">
+          <input type="text" class="input-element" [(ngModel)]="artComment.name" required name="name" #name="ngModel" placeholder="Name" />
+          <input type="text" class="input-element" [(ngModel)]="artComment.email" required name="email" #email="ngModel" placeholder="Email" />
+          <textarea
+            type="text" [(ngModel)]="artComment.message"
+            class="input-element" required name="message" #message="ngModel"
+            placeholder="Type your comment..."
+          ></textarea>
+          <button class="btn form-btn" [disabled]="!commentForm.valid">Post Reply</button>
+        </form>
+      </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

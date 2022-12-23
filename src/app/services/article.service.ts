@@ -32,6 +32,9 @@ export class ArticleService {
   getTopPopularArticles(take:number){
     return this.http.get(this.baseUrl+"article/bindTopPopularArticles/"+take);
   }
+  getRandomArticles(take:number){
+    return this.http.get(this.baseUrl+"article/bindRandomArticles/"+take);
+  }
   updateViews(id:number){
     return this.http.get(this.baseUrl + "article/updateViews/"+id);
   }
